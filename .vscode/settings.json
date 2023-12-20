@@ -1,0 +1,11 @@
+{
+    // On Window, strongly recommend using Git Bash as default to launch IPython terminal
+    // On Linux, most terminal type should work
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+  
+    // IPython terminal is non-recoverable and cannot persists between sessions.
+    // These settings tells vscode to stop attempting and fail to recover the
+    // last session terminals.
+    "terminal.integrated.persistentSessionReviveProcess": "never",
+    "terminal.integrated.enablePersistentSessions": false
+  }

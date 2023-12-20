@@ -1,0 +1,452 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'icon.png'%}" type="">
+
+  <title> PCworld </title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'general/css/bootstrap.css'%}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'general/css/font-awesome.min.css'%}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'general/css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'general/css/responsive.css'%}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="{% url 'index'%}">
+              <span>
+                PCworld
+              </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'index'%}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'service'%}">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'about'%}"> About</a>
+                </li>
+                <li class="nav-item">
+                  {% if request.user.is_authenticated %}
+                  <a class="nav-link" href="{% url 'logout'%}"> <i class="fa fa-user" aria-hidden="true"></i> Log out</a>
+                  {% else %}
+                  <a class="nav-link" href="{% url 'login'%}"> <i class="fa fa-user" aria-hidden="true"></i> Log in</a>
+                  {% endif %}
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div class="slider_bg_box">
+        <img src="{% static 'general/images/Computer-BG.gif'%}" alt="">
+      </div>
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 ">
+                  <div class="detail-box">
+                    <h1>
+                      Collecting the best<br>
+                      Computers
+                    </h1>
+                    <p>
+                      We collect not only the most powerful computers, but also simplified ones to save your <br>budget
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'products'%}" class="btn1">
+                        Get A Computer
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 ">
+                  <div class="detail-box">
+                    <h1>
+                      Buy individual<br>
+                      Сomponents
+                    </h1>
+                    <p>
+                      If you want to replace a part or assemble it yourself, then we have the best components for gaming PCs
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'components'%}" class="btn1">
+                        Buy
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 ">
+                  <div class="detail-box">
+                    <h1>
+                      Fixing a broken<br>
+                      PC
+                    </h1>
+                    <p>
+                      We will restore any breakdowns in your computer and <br>
+                      Your device will work many times better
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'repair'%}" class="btn1">
+                        Repair
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+          <li data-target="#customCarousel1" data-slide-to="1"></li>
+          <li data-target="#customCarousel1" data-slide-to="2"></li>
+        </ol>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding">
+    <div class="service_container">
+      <div class="container ">
+        <div class="heading_container">
+          <h2>
+            About <span>Components</span>
+          </h2>
+          <p>
+            Here you can learn about each component separately
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-6 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'general/images/cpu_icon.png'%}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  CPU
+                </h5>
+                <p>
+                  The central processing unit (CPU) is the heart of any computer system. It consists of two main parts: the ALU (arithmetic logic unit) and the CU (control unit).
+                </p>
+                <a href="https://www.geeksforgeeks.org/central-processing-unit-cpu/">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'general/images/gpu_icon.png'%}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  GPU
+                </h5>
+                <p>
+                  A graphics processing unit (GPU) is a computer chip that renders graphics and images by performing rapid mathematical calculations.
+                </p>
+                <a href="https://www.techtarget.com/searchvirtualdesktop/definition/GPU-graphics-processing-unit">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'general/images/mother_board_icon.png'%}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Motherboard
+                </h5>
+                <p>
+                  A motherboard is the main printed circuit board in general-purpose computers and other expandable systems.  It holds and allows communication between many of the crucial electronic components  of a system
+                </p>
+                <a href="https://www.lifewire.com/motherboards-system-boards-and-mainboards-2618154">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'general/images/ram_icon.png'%}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  RAM
+                </h5>
+                <p>
+                  Random - a random-access memory device allows data items to be read or written in almost the same amount of time irrespective of the physical location of data inside.
+                </p>
+                <a href="https://tenzystech.com/blog/random-access-memory">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end service section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding-bottom">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                Our <span>Works</span>
+              </h2>
+            </div>
+            <p>
+              Here we want to show some of our best works!
+            </p>
+            <a href="{% url 'works'%}">
+              See more
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'general/images/common-img.jpg'%}" alt="">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- contact section -->
+  <section class="contact_section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4 col-md-5 offset-md-1">
+          <div class="heading_container">
+            <h2>
+              Contact Us
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-5 offset-md-1">
+          <div class="form_container contact-form">
+            
+            {% if request.user.is_authenticated %}
+            <form action="" method="POST">
+              {% csrf_token %}
+              <div>
+                {{ form.first_name|attr:"placeholder=Name" }}
+              </div>
+              <div>
+                {{ form.subject|attr:"placeholder=Subject" }}
+              </div>
+              <div>
+                {{ form.email|attr:"placeholder=Email" }}
+              </div>
+              <div>
+                {{ form.message|attr:"placeholder=Message"|attr:"class=message-box" }}
+              </div>
+              <div class="btn_box">
+                <button>
+                  SEND
+                </button>
+              </div>
+            </form>
+            {% else %}
+            <form action="login">
+              <div class="btn_box">
+                <button>
+                  Log in
+                </button>
+              </div>
+            </form>
+            {% endif %} 
+          </div>
+        </div>
+        <div class="col-lg-7 col-md-6 px-0">
+          <div class="map_container">
+            <div class="map">
+              <div id="<div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/197/barnaul/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Барнаул</a><a href="https://yandex.ru/maps/197/barnaul/house/depovskaya_ulitsa_3/bEoYcQBiS0MBQFtpfX91eX5rYA==/?ll=83.773942%2C53.348403&utm_medium=mapframe&utm_source=maps&z=17" style="color:#eee;font-size:12px;position:absolute;top:14px;">Деповская улица, 3 — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=83.773942%2C53.348403&mode=whatshere&whatshere%5Bpoint%5D=83.772130%2C53.348386&whatshere%5Bzoom%5D=17&z=17" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +7 913 235 33 65
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  pcworld.1224@mail.ru
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_detail">
+            <h4>
+              Info
+            </h4>
+            <p>
+              We have a small team that loves its work and has been doing it efficiently since 2020  
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto info_col">
+          <div class="info_link_box">
+            <h4>
+              Links
+            </h4>
+            <div class="info_links">
+              <a class="active" href="{% url 'index'%}">
+                Home
+              </a>
+              <a class="" href="{% url 'about'%}">
+                About
+              </a>
+              <a class="" href="{% url 'service'%}">
+                Services
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col ">
+          <h4>
+            Subscribe
+          </h4>
+          <form action="#">
+            <input type="text" placeholder="Enter email" />
+            <button type="submit">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="{% static 'general/js/jquery-3.4.1.min.js'%}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'general/js/bootstrap.js'%}"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'general/js/custom.js'%}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>
